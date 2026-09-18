@@ -1,32 +1,26 @@
-
 package com.example.student.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Studententity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
     private String department;
     private int age;
+    private String username;
+    private String password;
 
-    // No-arg constructor
     public Studententity() {
     }
 
-    // Parameterized constructor
-    public Studententity(int id, String name, String department, int age) {
-        this.id = id;
-        this.name = name;
-        this.department = department;
-        this.age = age;
-    }
-
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -59,13 +53,19 @@ public class Studententity {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Studententity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", department='" + department + '\'' +
-                ", age=" + age +
-                '}';
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
